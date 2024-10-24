@@ -1,0 +1,61 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    margin-right: 1em;
+}
+
+.nav-link:hover {
+    color: #1db954 !important;
+}
+
+#home {
+    background-color: #0e0e0e;
+}
+
+#about, #contact {
+    background-color: #1a1a1a;
+}
+
+#projects {
+    background-color: #0e0e0e;
+}
+
+.card {
+    border: none;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.95rem;
+}
+
+.btn-outline-light:hover {
+    background-color: #1db954;
+    border-color: #1db954;
+}
+
+footer {
+    background-color: #0e0e0e;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        margin-right: 0;
+        margin-bottom: 0.5em;
+    }
+}
+
