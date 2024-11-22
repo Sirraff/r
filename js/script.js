@@ -1,3 +1,5 @@
+// js/script.js
+
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('fileInput');
@@ -86,8 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event listener for the download button
     downloadButton.addEventListener('click', () => {
-        const tableContainer = document.getElementById('tableContainer');
-        html2canvas(tableContainer).then(canvas => {
+        const resultsTable = document.getElementById('resultsTable');
+
+        html2canvas(resultsTable, {
+            backgroundColor: null, // Make background transparent if needed
+            scale: 2,              // Increase resolution
+            useCORS: true          // Enable cross-origin images if necessary
+        }).then(canvas => {
             const link = document.createElement('a');
             link.download = 'random_pairs.png';
             link.href = canvas.toDataURL('image/png');
