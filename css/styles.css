@@ -156,8 +156,8 @@ ul {
 
 /* Table Styling for Randomizer */
 #tableContainer {
-    display: inline-block; /* Wrap tightly around the table */
-    margin: 0 auto;        /* Center the container */
+    display: inline-block;
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -173,7 +173,7 @@ ul {
     text-align: center;
     white-space: nowrap;
     font-size: 16px;
-    background-color: #ffffff; /* Ensure background color is set */
+    background-color: #ffffff;
 }
 
 #resultsTable th {
@@ -186,7 +186,7 @@ ul {
 }
 
 #resultsTable tr:nth-child(odd) {
-    background-color: #ffffff; /* Explicitly set background color */
+    background-color: #ffffff;
 }
 
 /* Button Styling */
@@ -208,7 +208,7 @@ button:hover {
 
 #randomizeButton, #downloadButton {
     display: block;
-    margin: 15px auto 0 auto; /* Center the buttons */
+    margin: 15px 0 0 0; /* Align buttons to the left */
 }
 
 /* Textarea Styling */
@@ -236,16 +236,19 @@ footer {
 
 /* Draggable Row and Cell Styling */
 .pair-row {
-    cursor: grab; /* Change cursor to indicate draggable row */
+    cursor: -webkit-grab; /* For Safari */
+    cursor: grab;         /* Change cursor to indicate draggable row */
 }
 
 .name-cell {
-    cursor: grab; /* Change cursor to indicate draggable cell */
+    cursor: -webkit-grab; /* For Safari */
+    cursor: grab;         /* Change cursor to indicate draggable cell */
 }
 
 .dragging, .dragging-cell {
     opacity: 0.5;
-    cursor: grabbing; /* Change cursor when dragging */
+    cursor: -webkit-grabbing; /* For Safari */
+    cursor: grabbing;         /* Change cursor when dragging */
 }
 
 .drag-over-cell {
