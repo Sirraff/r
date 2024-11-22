@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomizeButton');
     const resultsSection = document.getElementById('resultsSection');
     const resultsTableBody = document.querySelector('#resultsTable tbody');
-    const downloadButton = document.getElementById('downloadButton'); // New element
+    const downloadButton = document.getElementById('downloadButton');
 
     randomizeButton.addEventListener('click', () => {
         let names = [];
@@ -56,13 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const name2 = names[i + 1] || '';
 
             const row = document.createElement('tr');
+            row.setAttribute('draggable', 'true');
 
             const cell1 = document.createElement('td');
             cell1.textContent = name1;
+            cell1.contentEditable = true; // Make the cell editable
             row.appendChild(cell1);
 
             const cell2 = document.createElement('td');
             cell2.textContent = name2;
+            cell2.contentEditable = true; // Make the cell editable
             row.appendChild(cell2);
 
             const cell3 = document.createElement('td');
@@ -71,6 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             resultsTableBody.appendChild(row);
         }
+
+        // Initialize drag-and-drop functionality
+        initDragAndDrop();
     }
 
     // Added event listener for the download button
@@ -83,4 +89,25 @@ document.addEventListener('DOMContentLoaded', () => {
             link.click();
         });
     });
+
+    function initDragAndDrop() {
+        // Use SortableJS to make rows draggable
+        Sortable.create(resultsTableBody, {
+            animation: 150,
+            handle: 'tr',
+            onEnd: () => {
+                // Update table numbers after rearrangement
+                updateTableNumbers();
+            }
+        });
+    }
+
+    function updateTableNumbers() {
+        const rows = resultsTableBody.querySelectorAll('tr');
+        let tableNumber = 1;
+        rows.forEach(row => {
+            // Update the table number cell
+            row.cells[2].textContent = tableNumber++;
+        });
+    }
 });
