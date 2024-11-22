@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Randomize Pairs - Random Pair Generator</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Include html2canvas library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <header>
@@ -27,18 +29,23 @@
         </section>
         <section id="resultsSection" style="display: none;">
             <h2>Randomized Pairs</h2>
-            <table id="resultsTable">
-                <thead>
-                    <tr>
-                        <th>Name 1</th>
-                        <th>Name 2</th>
-                        <th>Table #</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Randomized pairs will appear here -->
-                </tbody>
-            </table>
+            <!-- Wrapped the table in a container for capturing -->
+            <div id="tableContainer">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Name 1</th>
+                            <th>Name 2</th>
+                            <th>Table #</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Randomized pairs will appear here -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Added Download Image Button -->
+            <button id="downloadButton">Download Image</button>
         </section>
     </main>
 
