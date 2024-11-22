@@ -2,29 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home - Random Pair Generator</title>
+    <title>Randomize Pairs - Random Pair Generator</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Include html2canvas library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="randomize_pairs.html">Randomize Pairs</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Welcome to the Random Pair Generator</h1>
-        <p>
-            Use this tool to generate random pairs from a list of names.
-            You can upload a text file or paste the names directly.
-            Click on "Randomize Pairs" in the navigation bar to get started.
-        </p>
+        <h1>Random Pair Generator</h1>
+        <section>
+            <h2>Enter Names</h2>
+            <label for="fileInput">Upload a text file:</label>
+            <input type="file" id="fileInput" accept=".txt">
+            <p>Or paste names below (one name per line):</p>
+            <textarea id="textInput" rows="10" placeholder="Enter names here..."></textarea>
+            <button id="randomizeButton">Randomize Pairs</button>
+        </section>
+        <section id="resultsSection" style="display: none;">
+            <h2>Randomized Pairs</h2>
+            <!-- Wrapped the table in a container for capturing -->
+            <div id="tableContainer">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Name 1</th>
+                            <th>Name 2</th>
+                            <th>Table #</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Randomized pairs will appear here -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Added Download Image Button -->
+            <button id="downloadButton">Download Image</button>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Random Pair Generator</p>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
