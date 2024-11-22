@@ -206,9 +206,15 @@ button:hover {
     background-color: #16a085;
 }
 
+/* Align buttons to the left */
 #randomizeButton, #downloadButton {
-    display: block;
-    margin: 15px 0 0 0; /* Align buttons to the left */
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 0;
+}
+
+#inputSection, #resultsSection {
+    text-align: left;
 }
 
 /* Textarea Styling */
@@ -237,18 +243,18 @@ footer {
 /* Draggable Row and Cell Styling */
 .pair-row {
     cursor: -webkit-grab; /* For Safari */
-    cursor: grab;         /* Change cursor to indicate draggable row */
+    cursor: grab;
 }
 
 .name-cell {
     cursor: -webkit-grab; /* For Safari */
-    cursor: grab;         /* Change cursor to indicate draggable cell */
+    cursor: grab;
 }
 
 .dragging, .dragging-cell {
     opacity: 0.5;
     cursor: -webkit-grabbing; /* For Safari */
-    cursor: grabbing;         /* Change cursor when dragging */
+    cursor: grabbing;
 }
 
 .drag-over-cell {
