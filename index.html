@@ -2,124 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Name | Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS CDN -->
-    <link 
-      rel="stylesheet" 
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      integrity="sha384-9ndCyUa0GSM6UZcQ03R2Jp2T6auU5cwf+XgXotqBmtE7Z+0D4Zr42bZd68uCK6N0"
-      crossorigin="anonymous"
-    >
-
-    <!-- Font Awesome for icons -->
-    <link 
-      rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+OmHZo1Y9pT2FA1+z54g4ngGEOi5pYSVRe10DZZ"
-      crossorigin="anonymous"
-    >
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Google Fonts -->
-    <link 
-      href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" 
-      rel="stylesheet"
-    >
+    <title>Home - Random Pair Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70" tabindex="0">
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="randomize_pairs.html">Randomize Pairs</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Navigation Bar -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #0e0e0e;">
-      <div class="container">
-        <a class="navbar-brand" href="#">Your Name</a>
-        <button 
-          class="navbar-toggler" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav" 
-          aria-controls="navbarNav" 
-          aria-expanded="false" 
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <main>
+        <h1>Welcome to the Random Pair Generator</h1>
+        <p>
+            Use this tool to generate random pairs from a list of names.
+            You can upload a text file or paste the names directly.
+            Click on "Randomize Pairs" in the navigation bar to get started.
+        </p>
+    </main>
 
-    <!-- Home Section -->
-    <section id="home" class="vh-100 d-flex align-items-center text-center text-white" style="background-image: url('images/your-background-image.jpg'); background-size: cover; background-position: center;">
-      <div class="container">
-        <h1 class="display-4 fw-bold">Welcome to My Portfolio</h1>
-        <p class="lead">Your tagline or a brief introduction.</p>
-        <a href="#projects" class="btn btn-outline-light btn-lg">View My Work</a>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5 text-white" style="background-color: #1a1a1a;">
-      <div class="container">
-        <h2 class="text-center mb-4">About Me</h2>
-        <p class="lead text-center">Write a brief paragraph about yourself, your interests, and your goals.</p>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-5" style="background-color: #0e0e0e;">
-      <div class="container">
-        <h2 class="text-center text-white mb-4">Projects</h2>
-        <div class="row">
-          <!-- Project Card -->
-          <div class="col-md-4">
-            <div class="card bg-dark text-white mb-4">
-              <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
-              <div class="card-body">
-                <h5 class="card-title">Project Title</h5>
-                <p class="card-text">Short description of the project.</p>
-                <a href="#" class="btn btn-outline-light">Learn More</a>
-              </div>
-            </div>
-          </div>
-          <!-- Repeat Project Cards as needed -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 text-white" style="background-color: #1a1a1a;">
-      <div class="container">
-        <h2 class="text-center mb-4">Contact Me</h2>
-        <p class="lead text-center">Feel free to reach out for collaborations or just a friendly hello!</p>
-        <div class="d-flex justify-content-center">
-          <a href="mailto:your.email@example.com" class="text-white mx-3"><i class="fas fa-envelope fa-2x"></i></a>
-          <a href="https://github.com/yourusername" target="_blank" class="text-white mx-3"><i class="fab fa-github fa-2x"></i></a>
-          <a href="https://www.linkedin.com/in/yourusername/" target="_blank" class="text-white mx-3"><i class="fab fa-linkedin fa-2x"></i></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center text-white py-3" style="background-color: #0e0e0e;">
-      <p class="mb-0">&copy; 2023 Your Name. All rights reserved.</p>
+    <footer>
+        <p>&copy; 2024 Random Pair Generator</p>
     </footer>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script 
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeo4tFz7H51DfM4jXa9jX0Fs34jc4rI6F/pYcFbxZfP9YYDm" 
-      crossorigin="anonymous"
-    ></script>
 </body>
 </html>
-
