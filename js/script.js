@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomizeButton = document.getElementById('randomizeButton');
     const resultsSection = document.getElementById('resultsSection');
     const resultsTableBody = document.querySelector('#resultsTable tbody');
+    const downloadButton = document.getElementById('downloadButton'); // New element
 
     randomizeButton.addEventListener('click', () => {
         let names = [];
@@ -71,4 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsTableBody.appendChild(row);
         }
     }
+
+    // Added event listener for the download button
+    downloadButton.addEventListener('click', () => {
+        const tableContainer = document.getElementById('tableContainer');
+        html2canvas(tableContainer).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'random_pairs.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    });
 });
