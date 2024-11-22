@@ -91,9 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const resultsTable = document.getElementById('resultsTable');
 
         html2canvas(resultsTable, {
-            backgroundColor: null, // Make background transparent if needed
-            scale: 2,              // Increase resolution
-            useCORS: true          // Enable cross-origin images if necessary
+            backgroundColor: '#ffffff', // Set background color to white
+            scale: 2,                   // Increase resolution
+            useCORS: true               // Enable cross-origin images if necessary
         }).then(canvas => {
             const link = document.createElement('a');
             link.download = 'random_pairs.png';
