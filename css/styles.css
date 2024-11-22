@@ -177,3 +177,12 @@ footer {
     background-color: #e0e0e0;
     opacity: 0.7;
 }
+
+/* Draggable cell styling */
+.dragging-cell {
+    opacity: 0.5;
+}
+
+.drag-over-cell {
+    background-color: #e0e0e0;
+}
