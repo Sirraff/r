@@ -56,16 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const name2 = names[i + 1] || '';
 
             const row = document.createElement('tr');
-            row.setAttribute('draggable', 'true');
+            row.classList.add('pair-row');
 
             const cell1 = document.createElement('td');
             cell1.textContent = name1;
-            cell1.contentEditable = true; // Make the cell editable
+            cell1.contentEditable = true;
+            cell1.classList.add('name-cell');
             row.appendChild(cell1);
 
             const cell2 = document.createElement('td');
             cell2.textContent = name2;
-            cell2.contentEditable = true; // Make the cell editable
+            cell2.contentEditable = true;
+            cell2.classList.add('name-cell');
             row.appendChild(cell2);
 
             const cell3 = document.createElement('td');
@@ -75,11 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsTableBody.appendChild(row);
         }
 
-        // Initialize drag-and-drop functionality
-        initDragAndDrop();
+        // Initialize drag-and-drop functionality for rows
+        initRowDragAndDrop();
+
+        // Initialize drag-and-drop functionality for name cells
+        initCellDragAndDrop();
     }
 
-    // Added event listener for the download button
+    // Event listener for the download button
     downloadButton.addEventListener('click', () => {
         const tableContainer = document.getElementById('tableContainer');
         html2canvas(tableContainer).then(canvas => {
@@ -90,16 +95,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    function initDragAndDrop() {
+    function initRowDragAndDrop() {
         // Use SortableJS to make rows draggable
         Sortable.create(resultsTableBody, {
             animation: 150,
-            handle: 'tr',
+            handle: '.pair-row',
             onEnd: () => {
                 // Update table numbers after rearrangement
                 updateTableNumbers();
             }
         });
+    }
+
+    function initCellDragAndDrop() {
+        const nameCells = document.querySelectorAll('.name-cell');
+
+        nameCells.forEach(cell => {
+            cell.draggable = true;
+
+            cell.addEventListener('dragstart', dragStart);
+            cell.addEventListener('dragover', dragOver);
+            cell.addEventListener('drop', drop);
+            cell.addEventListener('dragend', dragEnd);
+        });
+    }
+
+    let draggedCell = null;
+
+    function dragStart(e) {
+        draggedCell = this;
+        e.dataTransfer.effectAllowed = 'move';
+        this.classList.add('dragging-cell');
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        this.classList.add('drag-over-cell');
+    }
+
+    function drop(e) {
+        e.preventDefault();
+        if (draggedCell !== this) {
+            // Swap the text content of the cells
+            const tempText = this.textContent;
+            this.textContent = draggedCell.textContent;
+            draggedCell.textContent = tempText;
+        }
+        this.classList.remove('drag-over-cell');
+    }
+
+    function dragEnd(e) {
+        this.classList.remove('dragging-cell');
+        const nameCells = document.querySelectorAll('.name-cell');
+        nameCells.forEach(cell => cell.classList.remove('drag-over-cell'));
     }
 
     function updateTableNumbers() {
