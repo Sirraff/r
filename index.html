@@ -2,57 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Randomize Pairs - Random Pair Generator</title>
+    <title>Rafael L.S Reis - E-Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Include html2canvas library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="randomize_pairs.html">Randomize Pairs</a></li>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="randomize_pairs.html">Randomizer</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Random Pair Generator</h1>
-        <section>
-            <h2>Enter Names</h2>
-            <label for="fileInput">Upload a text file:</label>
-            <input type="file" id="fileInput" accept=".txt">
-            <p>Or paste names below (one name per line):</p>
-            <textarea id="textInput" rows="10" placeholder="Enter names here..."></textarea>
-            <button id="randomizeButton">Randomize Pairs</button>
+        <section id="about-me">
+            <h1>Rafael L.S Reis</h1>
+            <img src="assets/profile.jpg" alt="Rafael L.S Reis" class="profile-pic">
+            <p>
+                Welcome to my e-portfolio! I am Rafael L.S Reis, a passionate Computer Science major at California State University, Monterey Bay. As an Apple Scholar, I am dedicated to leveraging technology to solve real-world problems and drive innovation. My journey in computer science has equipped me with a solid foundation in software development, data structures, algorithms, and web technologies.
+            </p>
         </section>
-        <section id="resultsSection" style="display: none;">
-            <h2>Randomized Pairs</h2>
-            <!-- Wrapped the table in a container for capturing -->
-            <div id="tableContainer">
-                <table id="resultsTable">
-                    <thead>
-                        <tr>
-                            <th>Name 1</th>
-                            <th>Name 2</th>
-                            <th>Table #</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Randomized pairs will appear here -->
-                    </tbody>
-                </table>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li><strong>Programming Languages:</strong> JavaScript, Python, Java, C++</li>
+                <li><strong>Web Development:</strong> HTML, CSS, React, Node.js</li>
+                <li><strong>Data Structures and Algorithms</strong></li>
+                <li><strong>Database Management:</strong> SQL, MongoDB</li>
+                <li><strong>Version Control:</strong> Git, GitHub</li>
+                <li><strong>Operating Systems:</strong> Windows, macOS, Linux</li>
+                <!-- Add more skills relevant to you -->
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project Title 1</h3>
+                <p>
+                    Description of the project. Highlight the technologies used, challenges faced, and the impact or results achieved.
+                </p>
+                <a href="#" target="_blank">View Project</a>
             </div>
-            <!-- Added Download Image Button -->
-            <button id="downloadButton">Download Image</button>
+            <div class="project">
+                <h3>Project Title 2</h3>
+                <p>
+                    Description of the project. Highlight the technologies used, challenges faced, and the impact or results achieved.
+                </p>
+                <a href="#" target="_blank">View Project</a>
+            </div>
+            <!-- Add more projects as needed -->
+        </section>
+
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <ul>
+                <li><strong>Apple Scholar</strong> - Recognized for academic excellence and contributions to the field of computer science.</li>
+                <li><strong>Dean’s List</strong> - Consistently achieved high academic standing throughout my studies.</li>
+                <!-- Add more achievements -->
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>
+                I'm always open to discussing new opportunities and collaborations. Feel free to reach out!
+            </p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:rafael.reis@example.com">rafael.reis@example.com</a><br>
+                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rafael-reis" target="_blank">linkedin.com/in/rafael-reis</a><br>
+                <strong>GitHub:</strong> <a href="https://github.com/rafaelreis" target="_blank">github.com/rafaelreis</a>
+            </p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Random Pair Generator</p>
+        <p>&copy; 2024 Rafael L.S Reis</p>
     </footer>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
