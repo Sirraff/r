@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <nav>
             <ul>
@@ -22,20 +23,23 @@
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
         <h1>Random Pair Generator</h1>
-            <section>
-                <h2>Enter Names</h2>
-                <label for="fileInput">Upload a text file:</label>
-                <input type="file" id="fileInput" accept=".txt">
-                <p>Or paste names below (one name per line):</p>
-                <textarea id="textInput" rows="10" placeholder="Enter names here..."></textarea>
-                <!-- Move the button here -->
-                <button id="randomizeButton">Randomize Pairs</button>
-            </section>
+
+        <!-- Input Section -->
+        <section id="inputSection">
+            <h2>Enter Names</h2>
+            <label for="fileInput">Upload a text file:</label>
+            <input type="file" id="fileInput" accept=".txt">
+            <p>Or paste names below (one name per line):</p>
+            <textarea id="textInput" rows="10" placeholder="Enter names here..."></textarea>
+            <button id="randomizeButton">Randomize Pairs</button>
+        </section>
+
+        <!-- Results Section -->
         <section id="resultsSection" style="display: none;">
             <h2>Randomized Pairs</h2>
-            <!-- Wrapped the table in a container for capturing -->
             <div id="tableContainer">
                 <table id="resultsTable">
                     <thead>
@@ -50,15 +54,16 @@
                     </tbody>
                 </table>
             </div>
-            <!-- Added Download Image Button -->
             <button id="downloadButton">Download Image</button>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Rafael L.S Reis</p>
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/script.js"></script>
 </body>
 </html>
