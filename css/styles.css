@@ -78,7 +78,7 @@ ul {
 }
 
 .hero-image {
-    width: 200px; /* Reduced image size */
+    width: 200px;
     border-radius: 50%;
     margin: 0 20px 20px 0;
 }
@@ -235,13 +235,17 @@ footer {
 }
 
 /* Draggable Row and Cell Styling */
-.dragging {
-    background-color: #e0e0e0;
-    opacity: 0.7;
+.pair-row {
+    cursor: grab; /* Change cursor to indicate draggable row */
 }
 
-.dragging-cell {
+.name-cell {
+    cursor: grab; /* Change cursor to indicate draggable cell */
+}
+
+.dragging, .dragging-cell {
     opacity: 0.5;
+    cursor: grabbing; /* Change cursor when dragging */
 }
 
 .drag-over-cell {
