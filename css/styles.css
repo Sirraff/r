@@ -46,7 +46,6 @@ main {
     max-width: 1000px;
     margin: 20px auto;
     padding: 0 20px;
-    text-align: left; /* Ensure left alignment */
 }
 
 h1, h2, h3 {
@@ -56,8 +55,6 @@ h1, h2, h3 {
 
 section {
     margin-bottom: 30px;
-    /* Ensure sections inherit left alignment */
-    text-align: left;
 }
 
 ul {
@@ -71,7 +68,7 @@ ul {
     color: #fff;
     padding: 40px 20px;
     margin-bottom: 30px;
-    text-align: center; /* Center content in hero section */
+    text-align: center;
 }
 
 .hero-content {
@@ -195,7 +192,6 @@ ul {
 
 /* Button Styling */
 button {
-    margin-top: 15px;
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
@@ -204,7 +200,6 @@ button {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    /* Ensure buttons are inline elements */
     display: inline-block;
 }
 
@@ -212,9 +207,10 @@ button:hover {
     background-color: #16a085;
 }
 
-/* Remove centering from buttons */
-#randomizeButton, #downloadButton {
-    margin-left: 0;
+/* Button Container */
+.button-container {
+    text-align: left;
+    margin-top: 15px;
 }
 
 /* Textarea Styling */
