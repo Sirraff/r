@@ -1,3 +1,5 @@
+/* css/styles.css */
+
 /* Reset some default styles */
 * {
     margin: 0;
@@ -62,12 +64,12 @@ section {
     margin: 20px 0;
 }
 
-#skills ul {
+#skills ul, #awards ul, .achievements ul {
     list-style-type: square;
     margin-left: 20px;
 }
 
-.project {
+.experience, .project {
     background-color: #fff;
     padding: 15px;
     margin-bottom: 15px;
@@ -75,8 +77,13 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.project h3 {
+.experience h3, .project h3 {
     margin-bottom: 5px;
+}
+
+.experience h4 {
+    margin-bottom: 10px;
+    color: #666;
 }
 
 .project a {
@@ -87,11 +94,6 @@ section {
 
 .project a:hover {
     text-decoration: underline;
-}
-
-.achievements ul {
-    list-style-type: disc;
-    margin-left: 20px;
 }
 
 .contact a {
@@ -105,14 +107,15 @@ section {
 
 /* Table styling for randomizer */
 #tableContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    display: inline-block; /* Wrap tightly around the table */
+    margin: 0 auto;        /* Center the container */
+    padding: 0;            /* Remove padding */
 }
 
 #resultsTable {
     border-collapse: collapse;
     width: auto;
+    margin: 0;            /* Remove margin */
 }
 
 #resultsTable th, #resultsTable td {
@@ -147,6 +150,17 @@ button {
 
 button:hover {
     background-color: #16a085;
+}
+
+/* Specific button styling */
+#randomizeButton {
+    display: block;
+    margin: 15px auto 0 auto; /* Center the button */
+}
+
+#downloadButton {
+    display: block;
+    margin: 15px auto 0 auto; /* Center the button */
 }
 
 /* Adjust the textarea width */
@@ -185,4 +199,20 @@ footer {
 
 .drag-over-cell {
     background-color: #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-pic {
+        width: 120px;
+    }
+
+    main {
+        padding: 0 10px;
+    }
 }
