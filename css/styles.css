@@ -272,3 +272,49 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* Section Separation */
+section {
+    margin-bottom: 50px; /* Increase spacing between sections */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for separation */
+}
+
+/* Section Headers */
+section h2 {
+    border-bottom: 2px solid #1abc9c; /* Underline for section titles */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    color: #1e1e1e;
+}
+
+/* Image Scaling */
+img {
+    max-width: 100%; /* Ensure images don't overflow their container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Slight rounding for aesthetics */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Consistent shadow effect */
+}
+
+/* Specific Image Size Adjustments */
+.hero-image {
+    width: 150px; /* Reduce size of the hero image */
+}
+
+.research-item img {
+    width: 100%; /* Fit image to container */
+    max-width: 400px; /* Cap maximum size */
+    margin: 10px 0; /* Add some spacing */
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 768px) {
+    .experience-cards, .project-cards {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+
+    .hero-image {
+        width: 120px; /* Further reduce size for smaller screens */
+    }
+}
