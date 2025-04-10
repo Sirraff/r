@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
+    padding-bottom: 50px;
 }
 
 /* Header and Navigation */
@@ -273,6 +274,58 @@ footer {
     cursor: grabbing;
 }
 
+/* upload image area */
+#uploadArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px dashed #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+#uploadArea img {
+    max-height: 300px;
+    width: auto;
+    margin-top: 10px;
+    display: block; /* Ensure the image is a block element */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#dragContainer {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    background-color: #eee;
+    overflow: hidden; /* Prevents drag boxes from overflowing */
+}
+
+.dragBox {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #aaa;
+    padding: 10px;
+    cursor: move;
+    user-select: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    min-width: 50px;
+}
+
+.dragBox:hover {
+    background-color: rgba(240, 240, 240, 0.9);
+}
+
+
+
 .drag-over-cell {
     background-color: #e0e0e0 !important;
 }
@@ -318,4 +371,10 @@ img {
     .experience-cards, .project-cards {
         grid-template-columns: 1fr; /* Stack cards on smaller screens */
     }
+}
+@media (max-width: 600px) {
+    #dragContainer {
+        min-height: 200px;
+    }
+    .dragBox{ font-size: 12px;}
 }

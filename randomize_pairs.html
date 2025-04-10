@@ -17,6 +17,10 @@
   <header role="banner">
     <nav role="navigation" aria-label="Main Navigation">
       <ul>
+        <li><a href="#" class="active">
+          <img src="assets/profile.jpg" alt="Profile Picture" class="profile-icon" width="30" height="30">
+          Rafael L.S Reis
+        </a></li>
         <li><a href="index.html" aria-label="Go to About Me">About Me</a></li>
         <li><a href="resume.html" aria-label="View my Resume">Resume</a></li>
         <li><a href="randomize_pairs.html" aria-label="Use the Random Pair Generator">Randomizer</a></li>
@@ -28,11 +32,35 @@
   <!-- Main Content -->
   <main role="main">
     <section aria-labelledby="main-title">
-        <h1 id="main-title">Random Pair Generator</h1>
+        <h1 id="main-title" class="main-title">Random Pair Generator</h1>
     </section>
 
+    <section id="imageUploadSection" aria-labelledby="image-upload-title">
+      <h2 id="image-upload-title" class="section-title">Background Image</h2>
+      <div class="input-group">
+        <label for="backgroundImageInput">Upload Background Image:</label>
+        <input type="file" id="backgroundImageInput" accept="image/*">
+      </div>
+      <div id="imageContainer" class="image-container">
+        <!-- Image will be displayed here -->
+        <img id="backgroundImage" src="" alt="Uploaded Background Image" style="display: none;">
+      </div>
+      
+        <div class="input-group">
+            <label for="numberOfBoxes">Number of Boxes:</label>
+            <input type="number" id="numberOfBoxes" min="1" value="1" aria-label="Number of Boxes">
+        </div>
+      <div id="dragBoxesContainer" class="drag-boxes-container">
+        <!-- Drag boxes will be added here -->
+      </div>
+    </section>
+
+
     <!-- Input Section -->
-    <section id="inputSection" aria-labelledby="input-section-title">
+    <section id="inputSection" aria-labelledby="input-section-title" style="display: none;">
+    
+    
+
       <h2 id="input-section-title">Enter Names</h2>
       <div class="input-group">
         <label for="fileInput">Upload a text file:</label>
@@ -44,12 +72,12 @@
         <textarea id="textInput" rows="10" placeholder="Enter names here..." aria-label="Enter names"></textarea>
       </div>
       <!-- Wrap the button inside a div -->
-      <div class="button-container">
-        <button id="randomizeButton" aria-label="Randomize Pairs">Randomize Pairs</button>
-      </div>
+        <div class="button-container">
+            <button id="randomizeButton" aria-label="Randomize Pairs">Randomize Pairs</button>
+        </div>
     </section>
 
-    <!-- Results Section -->
+      <!-- Results Section -->
     <section id="resultsSection" style="display: none;" aria-labelledby="results-section-title" aria-live="polite">
         <h2 id="results-section-title">Randomized Pairs</h2>
             <div id="tableContainer">
@@ -70,7 +98,7 @@
       <div class="button-container">
         <button id="downloadButton" aria-label="Download Image">Download Image</button>
       </div>
-    </section>
+      </section>
   </main>
   
   <!-- Footer -->

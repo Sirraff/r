@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsSection = document.getElementById('resultsSection');
     const resultsTableBody = document.querySelector('#resultsTable tbody');
     const downloadButton = document.getElementById('downloadButton');
+    const imageUpload = document.getElementById('imageUpload');
+    const classroomImage = document.getElementById('classroomImage');
+    const boxCountInput = document.getElementById('boxCount');
+    const addBoxesButton = document.getElementById('addBoxesButton');
+    const container = document.getElementById('container');
+
+    let dragBoxes = [];
+    let names = [];
 
     randomizeButton.addEventListener('click', () => {
         let names = [];
@@ -34,6 +42,98 @@ document.addEventListener('DOMContentLoaded', () => {
             .split('\n')
             .map(name => name.trim())
             .filter(name => name !== '');
+    }
+
+    // Image upload and display
+    imageUpload.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                classroomImage.src = e.target.result;
+                classroomImage.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Adding draggable boxes
+    addBoxesButton.addEventListener('click', () => {
+        const boxCount = parseInt(boxCountInput.value);
+        if (isNaN(boxCount) || boxCount <= 0) {
+            alert("Please enter a valid number of boxes.");
+            return;
+        }
+
+        // Clear existing boxes
+        dragBoxes.forEach(box => box.remove());
+        dragBoxes = [];
+
+        // Create new boxes
+        for (let i = 0; i < boxCount; i++) {
+            const box = document.createElement('div');
+            box.classList.add('drag-box');
+            box.draggable = true;
+            box.id = 'dragBox-' + i; // Ensure each box has a unique ID
+            
+            box.style.left = (i * 50) + 'px';
+            box.style.top = '10px'; 
+
+            //event listeners for drag and drop
+            box.addEventListener('dragstart', dragStart);
+            box.addEventListener('dragover', dragOver);
+            box.addEventListener('drop', drop);
+            box.addEventListener('dragend', dragEnd);
+
+            container.appendChild(box);
+            dragBoxes.push(box);
+        }
+    });
+
+    let draggedBox = null;
+    
+    // drag start event for drag boxes
+    function dragStart(e) {
+        draggedBox = this;
+        e.dataTransfer.effectAllowed = 'move';
+        this.classList.add('dragging');
+    }
+
+    //drag over event for drag boxes
+    function dragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        this.classList.add('over');
+    }
+
+    //drop event for drag boxes
+    function drop(e) {
+        e.preventDefault();
+        this.classList.remove('over');
+        if (draggedBox) {
+            // Calculate the drop position relative to the container
+            const containerRect = container.getBoundingClientRect();
+            const dropX = e.clientX - containerRect.left - (draggedBox.offsetWidth / 2);
+            const dropY = e.clientY - containerRect.top - (draggedBox.offsetHeight / 2);
+
+            draggedBox.style.left = dropX + 'px';
+            draggedBox.style.top = dropY + 'px';
+
+            draggedBox.classList.remove('dragging');
+            draggedBox = null; // Reset draggedBox after drop
+        }
+    }
+
+    //drag end event for drag boxes
+    function dragEnd(e) {
+        this.classList.remove('dragging');
+        const allBoxes = document.querySelectorAll('.drag-box');
+        allBoxes.forEach(box => box.classList.remove('over'));
+        draggedBox = null;
+    }
+
+    function randomizeNamesToBoxes() {
+        
     }
 
     function generatePairs(names) {
