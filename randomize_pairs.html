@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Random Pair Generator - Rafael L.S Reis</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Include html2canvas library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- Include SortableJS library for drag-and-drop -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
-    <!-- Google Fonts for better typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Pair Generator - Rafael L.S Reis</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Include html2canvas library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- Include SortableJS library for drag-and-drop -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+  <!-- Google Fonts for better typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Me</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="randomize_pairs.html">Randomizer</a></li>
-                <li><a href="interview.html">My Interview Workshop</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header role="banner">
+    <nav role="navigation" aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html" aria-label="Go to About Me">About Me</a></li>
+        <li><a href="resume.html" aria-label="View my Resume">Resume</a></li>
+        <li><a href="randomize_pairs.html" aria-label="Use the Random Pair Generator">Randomizer</a></li>
+        <li><a href="interview.html" aria-label="Learn about My Interview Workshop">My Interview Workshop</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Main Content -->
-    <main>
-        <h1>Random Pair Generator</h1>
+  <!-- Main Content -->
+  <main role="main">
+    <section aria-labelledby="main-title">
+        <h1 id="main-title">Random Pair Generator</h1>
+    </section>
 
-        <!-- Input Section -->
-        <section id="inputSection">
-            <h2>Enter Names</h2>
-            <label for="fileInput">Upload a text file:</label>
-            <input type="file" id="fileInput" accept=".txt">
-            <p>Or paste names below (one name per line):</p>
-            <textarea id="textInput" rows="10" placeholder="Enter names here..."></textarea>
-            <!-- Wrap the button inside a div -->
-            <div class="button-container">
-                <button id="randomizeButton">Randomize Pairs</button>
-            </div>
-        </section>
+    <!-- Input Section -->
+    <section id="inputSection" aria-labelledby="input-section-title">
+      <h2 id="input-section-title">Enter Names</h2>
+      <div class="input-group">
+        <label for="fileInput">Upload a text file:</label>
+        <input type="file" id="fileInput" accept=".txt">
+      </div>
+      <p>Or paste names below (one name per line):</p>
+      <div class="input-group">
+        <label for="textInput" class="sr-only">Enter names</label>
+        <textarea id="textInput" rows="10" placeholder="Enter names here..." aria-label="Enter names"></textarea>
+      </div>
+      <!-- Wrap the button inside a div -->
+      <div class="button-container">
+        <button id="randomizeButton" aria-label="Randomize Pairs">Randomize Pairs</button>
+      </div>
+    </section>
 
-        <!-- Results Section -->
-        <section id="resultsSection" style="display: none;">
-            <h2>Randomized Pairs</h2>
+    <!-- Results Section -->
+    <section id="resultsSection" style="display: none;" aria-labelledby="results-section-title" aria-live="polite">
+        <h2 id="results-section-title">Randomized Pairs</h2>
             <div id="tableContainer">
                 <table id="resultsTable">
                     <thead>
@@ -56,21 +64,20 @@
                     <tbody>
                         <!-- Randomized pairs will appear here -->
                     </tbody>
-                </table>
+                </table>        
             </div>
-            <!-- Wrap the button inside a div -->
-            <div class="button-container">
-                <button id="downloadButton">Download Image</button>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Rafael L.S Reis</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+      <!-- Wrap the button inside a div -->
+      <div class="button-container">
+        <button id="downloadButton" aria-label="Download Image">Download Image</button>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <p>&copy; 2024 Rafael L.S Reis</p>
+  </footer>
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
 </body>
 </html>

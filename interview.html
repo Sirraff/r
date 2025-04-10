@@ -5,48 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafael L.S. Reis - E-Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts for better typography -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         #readme-content {
             background: #f5f5f5;
-            padding: 15px;
+            padding: 20px;
             overflow-x: auto;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
-        #readme-content h1, #readme-content h2, #readme-content h3 {
-            font-family: 'Roboto', sans-serif;
+
+        #readme-content h1,
+        #readme-content h2,
+        #readme-content h3 {
+            font-family: 'Roboto', sans-serif; /* Consistent with overall design */
         }
     </style>
     <script>
         async function loadReadme() {
             const readmeUrl = 'https://raw.githubusercontent.com/Sirraff/Job-interview-workshop/main/README.md';
             try {
-                const response = await fetch(readmeUrl);
-                const markdown = await response.text();
-                const html = marked.parse(markdown); // Convert Markdown to HTML using Marked.js
-                document.getElementById('readme-content').innerHTML = html;
-            } catch (error) {
-                document.getElementById('readme-content').innerText = 'Failed to load README file.';
+                const response = await fetch(readmeUrl); // Fetch the README file
+                if (response.ok) {
+                    const markdown = await response.text(); // Convert to text
+                    const html = marked.parse(markdown); // Parse markdown to HTML
+                    document.getElementById('readme-content').innerHTML = html; // Insert into the page
+                } else {
+                    throw new Error(`Failed to load README: ${response.status} ${response.statusText}`);
+                }
+            } catch (err) {
+                console.error("Error loading README:", err);
+                document.getElementById('readme-content').innerHTML = '<p>Failed to load README file.</p>'; // Display error
             }
         }
     </script>
 </head>
 <body onload="loadReadme()">
-    <!-- Header and Navigation -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Me</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="randomize_pairs.html">Randomizer</a></li>
-                <li><a href="interview.html">My Interview Workshop</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+      <nav aria-label="Main Navigation">
+          <ul class="nav-list">
+              <li class="nav-item">
+                  <a href="index.html" aria-current="page">About Me</a>
+              </li>
+              <li class="nav-item">
+                  <a href="resume.html">Resume</a>
+              </li>
+              <li class="nav-item">
+                  <a href="randomize_pairs.html">Randomizer</a>
+              </li>
+              <li class="nav-item">
+                  <a href="interview.html">My Interview Workshop</a>
+              </li>
+          </ul>
+      </nav>
+  </header>
 
     <!-- Main Content -->
     <main>
@@ -58,15 +72,20 @@
             <p>
                 Below is the latest content from the GitHub repository’s README file:
             </p>
-            <div id="readme-content">
-                Loading README...
-            </div>
-            <p>
-                <br>
-                View the full repository here &#x2192;
-                <a href="https://github.com/Sirraff/Job-interview-workshop" target="_blank">GitHub Repo</a>
-            </p>
+            <section id="readme-section" aria-label="README Content">
+                <div id="readme-content" role="region">
+                    Loading README...
+                </div>
+                <p>
+                    <a href="https://github.com/Sirraff/Job-interview-workshop" target="_blank" rel="noopener noreferrer"
+                        aria-label="View the full repository on GitHub">
+                        View the full repository here <span aria-hidden="true">&#x2192;</span>
+                    </a>
+                </p>
+            </section>
+
         </section>
+
     </main>
 
     <!-- Footer -->

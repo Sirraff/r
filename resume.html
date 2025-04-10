@@ -1,31 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Rafael L.S Reis - Resume</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts for better typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafael L.S Reis - Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Google Fonts for better typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Me</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="randomize_pairs.html">Randomizer</a></li>
-                <li><a href="interview.html">My Interview Workshop</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav aria-label="Main Navigation">
+      <div class="nav-container">
+        <a href="index.html" class="nav-brand">Rafael L.S Reis</a>
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">About Me</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="randomize_pairs.html">Randomizer</a></li>
+          <li><a href="interview.html">Interview Workshop</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        <h1>Resume</h1>
-        <iframe src="assets/resume.pdf" width="100%" height="800px"></iframe>
-    </main>
+  <main>
+    <section id="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title">Welcome to My Portfolio</h1>
+        <p>Discover my work and experiences.</p>
+      </div>
+    </section>
+    <section id="resume-section">
+      <div class="container">
+      <h2 class="section-heading">Resume</h2>
+      <div class="resume-container">
+        <iframe src="assets/resume.pdf" width="100%" height="800px" title="Rafael L.S Reis Resume"></iframe>
+      </div>
+    </div>
+    </section>
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading" class="section-heading">About Me</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+          Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+          Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+          Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.
+          Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
+          Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede.
+          Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis
+          in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque
+          fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+        </p>
+      </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2024 Rafael L.S Reis</p>
-    </footer>
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading" class="section-heading">My Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>Randomizer</h3>
+            <p>A tool to create random pairs.</p>
+            <a href="randomize_pairs.html" class="project-link" aria-label="View Randomizer Project">View Project</a>
+          </div>
+          <div class="project-card">
+            <h3>Interview Workshop</h3>
+            <p>A workshop for practicing interviews.</p>
+            <a href="interview.html" class="project-link" aria-label="View Interview Workshop Project">View Project</a>
+          </div>
+          <!-- Add more projects as needed -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="copyright">&copy; 2024 Rafael L.S Reis</p>
+        <ul class="social-links">
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <!-- Add more social links as needed -->
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="https://kit.fontawesome.com/f1e4053457.js" crossorigin="anonymous"></script>
 </body>
 </html>

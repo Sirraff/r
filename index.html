@@ -5,74 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafael L.S. Reis - E-Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts for better typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"
+        aria-label="External Google Fonts for typography">
 </head>
 <body>
-    <!-- Header and Navigation -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">About Me</a></li>
-                <li><a href="resume.html">Resume</a></li>
-                <li><a href="randomize_pairs.html">Randomizer</a></li>
-                <li><a href="interview.html">My Interview Workshop</a></li>
-            </ul>
-        </nav>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header class="main-header">
+        <div class="container">
+            <nav aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" aria-current="page">About Me</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="randomize_pairs.html">Randomizer</a></li>
+                    <li><a href="interview.html">My Interview Workshop</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="section">
-            <div class="hero-content">
-                <img src="assets/profile.jpg" alt="Rafael L.S Reis" class="hero-image">
-                <div class="hero-text">
-                    <h1>Rafael L.S. Reis</h1>
-                    <h3>Computer Science Major | TA for Operating Systems | Apple Scholar</h3>
-                    <p>Soquel, CA</p>
-                    <div class="hero-links">
-                        <a href="https://www.linkedin.com/in/raf-reis/" target="_blank">LinkedIn</a> |
-                        <a href="https://github.com/Sirraff" target="_blank">GitHub</a>
+    <main id="main-content">
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-image-container">
+                        <img src="assets/profile.jpg" alt="Rafael L.S Reis" class="hero-image" width="300" height="300">
+                    </div>
+                    <div class="hero-text">
+                        <h1 class="hero-title">Rafael L.S. Reis</h1>
+                        <h2 class="hero-subtitle">Computer Science Major | TA for Operating Systems | Apple Scholar</h2>
+                        <p class="hero-location">Soquel, CA</p>
+                        <div class="hero-links" aria-label="Social media links">
+                            <a href="https://www.linkedin.com/in/raf-reis/" target="_blank" rel="noopener noreferrer"
+                                aria-label="Rafael's LinkedIn profile">LinkedIn</a> |
+                            <a href="https://github.com/Sirraff" target="_blank" rel="noopener noreferrer"
+                                aria-label="Rafael's GitHub profile">GitHub</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-<section id="about-me">
-    <h2>About Me</h2>
-    <p>
-        Welcome to my e-portfolio! I am Rafael L.S. Reis, a proud Computer Science major at California State University, Monterey Bay, set to graduate in 2025. My journey in tech is more than a career pursuit—it’s a mission fueled by curiosity, compassion, and a desire to create meaningful change.
-    </p>
-    <br><br>
-    <p>
-        Computer Science is my passion, not just because it allows me to solve problems, but because it empowers me to create tools that make life better for others. As a Teaching Assistant at a Hispanic-Serving Institution, I witness firsthand the challenges faced by students from diverse, socioeconomically impacted backgrounds. I know what it means to face obstacles and persist, and I am dedicated to helping others navigate these hurdles, offering support and mentorship to those who need it most.
-    </p>
-    <p>
-        As a Latino in tech, I take pride in representing and uplifting underrepresented voices in STEM. I believe in the power of education and opportunity to transform lives, and I strive to create spaces where students can thrive. Whether through teaching, mentoring, or research, I work to empower others, fostering a culture of equity and inclusion in every space I inhabit.
-    </p>
-    <br><br>
-    <p>
-        Ethics and responsibility guide my approach to technology. I believe that innovation must not come at the expense of humanity. My research focuses on sustainability, ensuring that the tools we build today don’t burden future generations. Beyond the code, I want my work to contribute to a fairer, more inclusive society—one where every individual, regardless of background, has the opportunity to succeed.
-    </p>
-    <br><br>
-    <p>
-        This e-portfolio is a reflection of my journey, my values, and my aspirations. It is a space where I share not just my accomplishments but the impact I hope to create. Thank you for taking the time to learn about me and the work I am so passionate about.
-    </p>
-</section>
-
-
-        <!-- Research Section -->
-        <section id="research" class="section">
-            <h2>Research and Achievements</h2>
-            <div class="research-item">
-                <h3>Presented Research Poster at GMiS Texas 2024</h3>
-                <img src="assets/research.jpg" alt="Research Poster Presentation" class="responsive-img">
+        <section id="about-me" class="about-me">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
                 <p>
-                    Presented a research poster focusing on the relationship between software efficiency and energy usage. This work highlights how optimizing code can contribute to sustainable computing practices.
+                    Welcome to my e-portfolio! I am Rafael L.S. Reis, a proud Computer Science major at California State
+                    University, Monterey Bay, set to graduate in 2025. My journey in tech is more than a career
+                    pursuit—it’s a mission fueled by curiosity, compassion, and a desire to create meaningful change.
+                </p>
+                <p>
+                    Computer Science is my passion, not just because it allows me to solve problems, but because it
+                    empowers me to create tools that make life better for others. As a Teaching Assistant at a
+                    Hispanic-Serving Institution, I witness firsthand the challenges faced by students from diverse,
+                    socioeconomically impacted backgrounds. I know what it means to face obstacles and persist, and I
+                    am dedicated to helping others navigate these hurdles, offering support and mentorship to those who
+                    need it most.
+                </p>
+                <p>
+                    As a Latino in tech, I take pride in representing and uplifting underrepresented voices in STEM. I
+                    believe in the power of education and opportunity to transform lives, and I strive to create spaces
+                    where students can thrive. Whether through teaching, mentoring, or research, I work to empower
+                    others, fostering a culture of equity and inclusion in every space I inhabit.
+                </p>
+                <p>
+                    Ethics and responsibility guide my approach to technology. I believe that innovation must not come
+                    at the expense of humanity. My research focuses on sustainability, ensuring that the tools we
+                    build today don’t burden future generations. Beyond the code, I want my work to contribute to a
+                    fairer, more inclusive society—one where every individual, regardless of background, has the
+                    opportunity to succeed.
+                </p>
+                <p>
+                    This e-portfolio is a reflection of my journey, my values, and my aspirations. It is a space where
+                    I share not just my accomplishments but the impact I hope to create. Thank you for taking the time
+                    to learn about me and the work I am so passionate about.
                 </p>
             </div>
+        </section>
+
+        <section id="research" class="research">
+            <div class="container">
+                <h2 class="section-title">Research and Achievements</h2>
+                <div class="research-item">
+                    <h3>Presented Research Poster at GMiS Texas 2024</h3>
+                    <img src="assets/research.jpg" alt="Research Poster Presentation" class="responsive-img"
+                        width="600" height="400">
+                    <p>
+                        Presented a research poster focusing on the relationship between software efficiency and
+                        energy usage. This work highlights how optimizing code can contribute to sustainable
+                        computing practices.
+                    </p>
+                </div>
             <div class="research-item">
                 <h3>GMiS STEM Zone Competition</h3>
                 <img src="assets/prize.gif" alt="Receiving 2nd Place Award at GMiS" class="responsive-img">
@@ -88,51 +110,46 @@
                 </p>
             </div>
         </section>
-
-        <!-- Work Experience -->
-        <section id="work-experience" class="section">
-            <h2>Work Experience</h2>
-            <div class="experience-cards">
-                <div class="experience-card">
-                    <h3>Undergraduate Researcher - Apple Scholar</h3>
-                    <h4>California State University - Monterey Bay | May 2023 – Present</h4>
-                    <ul>
-                        <li>Developing RAPL-based software to measure the impact of code efficiency on energy usage.</li>
-                        <li>Conducting research on the implications of code efficiency in real-world contexts.</li>
-                    </ul>
+                <section id="work-experience" class="work-experience">
+                    <div class="container">
+                        <h2 class="section-title">Work Experience</h2>
+                        <div class="experience-cards">
+                            <div class="experience-card">
+                                <h3>Undergraduate Researcher - Apple Scholar</h3>
+                                <h4>California State University - Monterey Bay | May 2023 – Present</h4>
+                                <ul>
+                                    <li>Developing RAPL-based software to measure the impact of code efficiency on
+                                        energy usage.</li>
+                                    <li>Conducting research on the implications of code efficiency in real-world
+                                        contexts.</li>
+                                </ul>
+                            </div>
+                            <div class="experience-card">
+                                <h3>Teaching Assistant ( Intro to Programming, Data Structures, Operating Systems)</h3>
+                                <h4>California State University - Monterey Bay | Aug. 2023 – Present</h4>
+                                <ul>
+                                    <li>Transformed grading process by implementing JUnit and Python/Bash automation
+                                        tools.</li>
+                                    <li>Reduced evaluation time for 80+ students per assignment from 8 hours to a few
+                                        seconds.</li>
+                                    <li>Instructed classes of approximately 40 students, delivering hands-on lab
+                                        sessions and lectures.</li>
+                                </ul>
+                            </div>
+                            <div class="experience-card">
+                                <h3>Volunteer IT Specialist</h3>
+                                <h4>Homeless Garden Project - Santa Cruz | Dec. 2023 – Present</h4>
+                                <ul>
+                                    <li>Assited with various IT tasks including server migrations, setting backup
+                                        routines and general help desk.</li>
+                                </ul>
+                            </div>
+                    </div>
                 </div>
-                <div class="experience-card">
-                    <h3>Teaching Assistant ( Intro to Programming, Data Structures, Operating Systems)</h3>
-                    <h4>California State University - Monterey Bay | Aug. 2023 – Present</h4>
-                    <ul>
-                        <li>Transformed grading process by implementing JUnit and Python/Bash automation tools.</li>
-                        <li>Reduced evaluation time for 80+ students per assignment from 8 hours to a few seconds.</li>
-                        <li>Instructed classes of approximately 40 students, delivering hands-on lab sessions and lectures.</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Volunteer IT Specialist</h3>
-                    <h4>Homeless Garden Project - Santa Cruz | Dec. 2023 – Present</h4>
-                    <ul>
-                        <li>Assited with various IT tasks including server migrations, setting backup routines and general help desk.</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Volunteer Tech Support</h3>
-                    <h4>Monterey County Free Libraries– Aug. 2024 - Present</h4>
-                    <ul>
-                        <li>Helped library patrons with their tech issues and needs</li>
-                        <li>Worked with socioeconomically impacted society to bridge technological gaps</li>
-                        <li>Participated in book fairs and workshops</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                </section>
     </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Rafael L.S Reis. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="container">&copy; 2024 Rafael L.S Reis. All rights reserved.</div>
     </footer>
 </body>
 </html>
