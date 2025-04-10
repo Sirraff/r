@@ -2,19 +2,21 @@
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // elements for old code
     const fileInput = document.getElementById('fileInput');
     const textInput = document.getElementById('textInput');
     const randomizeButton = document.getElementById('randomizeButton');
     const resultsSection = document.getElementById('resultsSection');
     const resultsTableBody = document.querySelector('#resultsTable tbody');
     const downloadButton = document.getElementById('downloadButton');
+
+    //elements for new code
     const imageUpload = document.getElementById('imageUpload');
     const classroomImage = document.getElementById('classroomImage');
     const boxCountInput = document.getElementById('boxCount');
     const addBoxesButton = document.getElementById('addBoxesButton');
-    const container = document.getElementById('container');
-
-    let dragBoxes = [];
+    const dropArea = document.getElementById('dropArea');
+    let dragBoxes = []; // Store the drag boxes
     let names = [];
 
     randomizeButton.addEventListener('click', () => {
@@ -25,12 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const reader = new FileReader();
             reader.onload = function(event) {
                 names = parseNames(event.target.result);
-                generatePairs(names);
+                if(dragBoxes.length > 0){
+                    randomizeNamesToBoxes(names)
+                }
+                else{
+                    generatePairs(names);
+                }
             };
             reader.readAsText(fileInput.files[0]);
         } else if (textInput.value.trim() !== '') {
             // Use the text from the textarea
             names = parseNames(textInput.value);
+            if(dragBoxes.length > 0){
+                randomizeNamesToBoxes(names);
+            }
+            else{
+                generatePairs(names);
+            }
+        } else if (dragBoxes.length > 0 && names.length>0){
+            randomizeNamesToBoxes(names);
+        }
+        else if (dragBoxes.length === 0){
+            // if no boxes have been generated, use old function
             generatePairs(names);
         } else {
             alert('Please upload a file or enter names in the text area.');
@@ -58,23 +76,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Adding draggable boxes
+
     addBoxesButton.addEventListener('click', () => {
         const boxCount = parseInt(boxCountInput.value);
         if (isNaN(boxCount) || boxCount <= 0) {
-            alert("Please enter a valid number of boxes.");
+            alert('Please enter a valid number of boxes.');
             return;
         }
 
-        // Clear existing boxes
-        dragBoxes.forEach(box => box.remove());
-        dragBoxes = [];
-
-        // Create new boxes
+        clearBoxes();
+    
         for (let i = 0; i < boxCount; i++) {
             const box = document.createElement('div');
             box.classList.add('drag-box');
             box.draggable = true;
-            box.id = 'dragBox-' + i; // Ensure each box has a unique ID
+            box.id = 'dragBox-' + i;
             
             box.style.left = (i * 50) + 'px';
             box.style.top = '10px'; 
@@ -85,10 +101,21 @@ document.addEventListener('DOMContentLoaded', () => {
             box.addEventListener('drop', drop);
             box.addEventListener('dragend', dragEnd);
 
-            container.appendChild(box);
+            dropArea.appendChild(box);
             dragBoxes.push(box);
         }
     });
+
+    function clearBoxes() {
+        const container = document.getElementById('dropArea');
+    
+        // Remove existing boxes from the container
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+    
+        dragBoxes = []; // Clear the dragBoxes array
+    }
 
     let draggedBox = null;
     
@@ -112,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.classList.remove('over');
         if (draggedBox) {
             // Calculate the drop position relative to the container
-            const containerRect = container.getBoundingClientRect();
+            const containerRect = dropArea.getBoundingClientRect();
             const dropX = e.clientX - containerRect.left - (draggedBox.offsetWidth / 2);
             const dropY = e.clientY - containerRect.top - (draggedBox.offsetHeight / 2);
 
@@ -132,8 +159,30 @@ document.addEventListener('DOMContentLoaded', () => {
         draggedBox = null;
     }
 
-    function randomizeNamesToBoxes() {
+    function randomizeNamesToBoxes(names) {
+        if (names.length === 0) {
+            alert('No names were provided.');
+            return;
+        }
         
+        // Shuffle the names array using Fisher-Yates algorithm
+        for (let i = names.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [names[i], names[j]] = [names[j], names[i]];
+        }
+    
+        // Assign names to boxes
+        dragBoxes.forEach(box => {
+            box.textContent = ''; // Clear previous name
+        });
+    
+        for (let i = 0; i < Math.min(names.length, dragBoxes.length); i++) {
+            dragBoxes[i].textContent = names[i];
+            dragBoxes[i].style.textAlign = "center";
+        }
+        // clear the results table
+        resultsTableBody.innerHTML = '';
+        resultsSection.style.display = 'none';
     }
 
     function generatePairs(names) {

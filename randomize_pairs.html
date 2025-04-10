@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Pair Generator - Rafael L.S Reis</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- Include html2canvas library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <!-- Include SortableJS library for drag-and-drop -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
-  <!-- Google Fonts for better typography -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Pair Generator - Rafael L.S Reis</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
   <header role="banner">
     <nav role="navigation" aria-label="Main Navigation">
       <ul>
@@ -28,18 +23,27 @@
       </ul>
     </nav>
   </header>
-
-  <!-- Main Content -->
   <main role="main">
     <section aria-labelledby="main-title">
         <h1 id="main-title" class="main-title">Random Pair Generator</h1>
     </section>
 
     <section id="imageUploadSection" aria-labelledby="image-upload-title">
-      <h2 id="image-upload-title" class="section-title">Background Image</h2>
+      <h2 id="image-upload-title">Classroom Layout</h2>
       <div class="input-group">
-        <label for="backgroundImageInput">Upload Background Image:</label>
+        <div id="imageContainer" class="image-container">
+        <img id="backgroundImage" src="" alt="Uploaded Background Image">
+        </div>
+        <label for="backgroundImageInput">Upload Image:</label>
         <input type="file" id="backgroundImageInput" accept="image/*">
+    
+      </div>
+
+      <div class="drag-area">
+      <div class="input-group">
+            <label for="numberOfBoxes">Number of Boxes:</label>
+            <input type="number" id="numberOfBoxes" min="1" value="1" aria-label="Number of Boxes">
+            <button id="createBoxesButton" aria-label="create boxes">Create Boxes</button>
       </div>
       <div id="imageContainer" class="image-container">
         <!-- Image will be displayed here -->
@@ -49,52 +53,45 @@
         <div class="input-group">
             <label for="numberOfBoxes">Number of Boxes:</label>
             <input type="number" id="numberOfBoxes" min="1" value="1" aria-label="Number of Boxes">
+            <button id="createBoxesButton" aria-label="create boxes">Create Boxes</button>
+        </div>    
+        <div id="dropArea" class="drop-area">
+            <!-- Drag boxes will be added here -->
         </div>
-      <div id="dragBoxesContainer" class="drag-boxes-container">
-        <!-- Drag boxes will be added here -->
-      </div>
+        </div>
     </section>
 
-
-    <!-- Input Section -->
-    <section id="inputSection" aria-labelledby="input-section-title" style="display: none;">
-    
-    
-
-      <h2 id="input-section-title">Enter Names</h2>
-      <div class="input-group">
-        <label for="fileInput">Upload a text file:</label>
-        <input type="file" id="fileInput" accept=".txt">
-      </div>
-      <p>Or paste names below (one name per line):</p>
-      <div class="input-group">
-        <label for="textInput" class="sr-only">Enter names</label>
-        <textarea id="textInput" rows="10" placeholder="Enter names here..." aria-label="Enter names"></textarea>
-      </div>
-      <!-- Wrap the button inside a div -->
+    <section id="inputSection" aria-labelledby="input-section-title">
+      <h2 id="input-section-title">Names</h2>
+        <div class="input-group">
+            <label for="fileInput">Upload a text file:</label>
+            <input type="file" id="fileInput" accept=".txt">
+        </div>
+        <p>Or paste names below (one name per line):</p>
+        <div class="input-group">
+            <label for="textInput" class="sr-only">Enter names</label>
+            <textarea id="textInput" rows="10" placeholder="Enter names here..." aria-label="Enter names"></textarea>
+        </div>
         <div class="button-container">
             <button id="randomizeButton" aria-label="Randomize Pairs">Randomize Pairs</button>
         </div>
     </section>
-
-      <!-- Results Section -->
-    <section id="resultsSection" style="display: none;" aria-labelledby="results-section-title" aria-live="polite">
-        <h2 id="results-section-title">Randomized Pairs</h2>
-            <div id="tableContainer">
-                <table id="resultsTable">
-                    <thead>
-                        <tr>
-                            <th>Name 1</th>
-                            <th>Name 2</th>
-                            <th>Table #</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Randomized pairs will appear here -->
-                    </tbody>
-                </table>        
-            </div>
-      <!-- Wrap the button inside a div -->
+  
+    <section id="resultsSection" aria-labelledby="results-section-title" aria-live="polite">
+    <h2 id="results-section-title">Randomized Pairs</h2>
+        <div id="tableContainer">
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Name 1</th>
+                        <th>Name 2</th>
+                        <th>Table #</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>        
+        </div>
       <div class="button-container">
         <button id="downloadButton" aria-label="Download Image">Download Image</button>
       </div>
@@ -102,10 +99,9 @@
   </main>
   
   <!-- Footer -->
-  <footer role="contentinfo">
+  <footer>
     <p>&copy; 2024 Rafael L.S Reis</p>
   </footer>
-  <!-- JavaScript -->
   <script src="js/script.js"></script>
 </body>
 </html>
